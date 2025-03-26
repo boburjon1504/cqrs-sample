@@ -25,4 +25,4 @@ jobs:
       - name: 🔨 Build solution
         run: dotnet build src/CQRS.sln --configuration Release --no-restore
       - name: 🔨 Test solution
-        run: dotnet test src/CQRS.sln --configuration Release --no-restore --no-build
+        run: dotnet test src/CQRS.sln --configuration Release --no-restore --no-build --logger:"console;verbosity=normal"
