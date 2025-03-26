@@ -17,4 +17,12 @@ public class UserServiceTests
 
         Assert.NotEqual(0, a * b);
     }
+    [Fact]
+    public void IsMultWorkingWrong()
+    {
+        var a = 50;
+        var b = 80;
+
+        Assert.Equal(0, a * b);
+    }
 }
