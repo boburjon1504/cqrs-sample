@@ -23,6 +23,6 @@ public class UserServiceTests
         var a = 50;
         var b = 80;
 
-        Assert.Equal(0, a * b);
+        Assert.NotEqual(0, a * b);
     }
 }

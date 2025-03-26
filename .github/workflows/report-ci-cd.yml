@@ -21,7 +21,6 @@ jobs:
 
       - name: 📦 Restore dependencies
         run: dotnet restore src/CQRS.sln
-
       - name: 🔨 Build solution
         run: dotnet build src/CQRS.sln --configuration Release --no-restore
       - name: 🔨 Test solution
