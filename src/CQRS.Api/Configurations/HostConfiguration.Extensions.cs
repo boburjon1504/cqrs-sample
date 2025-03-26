@@ -1,4 +1,6 @@
-﻿using CQRS.Api.Settings;
+﻿using CQRS.Api.Persistence.DataContext;
+using CQRS.Api.Persistence.Repositories;
+using CQRS.Api.Settings;
 using MongoDB.Driver;
 
 namespace CQRS.Api.Configurations;
@@ -13,7 +15,12 @@ public static partial class HostConfiguration
     
     private static WebApplicationBuilder AddInfrastructures(this WebApplicationBuilder builder)
     {
-
+        builder
+            .Services
+            .AddMediatR(c =>
+            {
+                c.RegisterServicesFromAssembly(typeof(Program).Assembly);
+            });
         return builder;
     }
 
@@ -22,15 +29,17 @@ public static partial class HostConfiguration
         builder
             .Services
             .Configure<MongoDbSettings>(builder.Configuration.GetSection(nameof(MongoDbSettings)));
-
+    
         builder
             .Services
+            .AddSingleton<AppDbContext>()
             .AddSingleton<IMongoClient>(s =>
             {
                 var setting = builder.Configuration.GetSection(nameof(MongoDbSettings)).Get<MongoDbSettings>();
                 return new MongoClient(setting.ConnectionStrings);
             });
 
+        builder.Services.AddScoped<IUserRepository, UserRepository>();
         return builder;
     }
 
