@@ -11,7 +11,7 @@ namespace CQRS.Api.Controllers
     public class UsersController(IMediator mediator) : ControllerBase
     {
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Get(CancellationToken token, CancellationToken tt, CancellationToken t)
         {
             var user = await mediator.Send(new GetAllUserCommand());
 
@@ -22,7 +22,6 @@ namespace CQRS.Api.Controllers
         public async Task<IActionResult> GetById(Guid id)
         {
             var user = await mediator.Send(new GetUserByIdCommand(id));
-
             return Ok(user);
         }
 
