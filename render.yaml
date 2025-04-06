@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: myapi                   
+    env: aspnetcore                
+    plan: free                    
+    autoDeploy: true              
+    branch: master                  
+    buildCommand: "dotnet build src/CQRS.Api/MyApi.csproj"  
+    startCommand: "dotnet src/CQRS.Api/bin/Debug/net9.0/MyApi.dll"  
