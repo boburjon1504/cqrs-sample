@@ -5,5 +5,5 @@ services:
     plan: free                    
     autoDeploy: true              
     branch: master                  
-    buildCommand: "dotnet build"  
-    startCommand: "dotnet MyApi.dll" 
+    buildCommand: "dotnet build src/CQRS.Api/MyApi.csproj"  
+    startCommand: "dotnet src/CQRS.Api/bin/Debug/net9.0/MyApi.dll"  
