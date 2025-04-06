@@ -1,0 +1,9 @@
+services:
+  - type: web
+    name: myapi                   
+    env: aspnetcore                
+    plan: free                    
+    autoDeploy: true              
+    branch: main                  
+    buildCommand: "dotnet build"  
+    startCommand: "dotnet MyApi.dll" 
