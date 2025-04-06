@@ -4,6 +4,6 @@ services:
     env: aspnetcore                
     plan: free                    
     autoDeploy: true              
-    branch: main                  
+    branch: master                  
     buildCommand: "dotnet build"  
     startCommand: "dotnet MyApi.dll" 
