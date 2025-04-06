@@ -32,5 +32,7 @@ namespace CQRS.Api.Controllers
 
             return Ok(user);
         }
+        [HttpGet("say-hi")]
+        public IActionResult SayHi() => Ok("Hello from CQRS app");
     }
 }
