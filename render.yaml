@@ -1,18 +1,10 @@
 services:
   - type: web
     name: api1
-    runtime: dotnet
-    buildCommand: dotnet publish src/CQRS.Api/CQRS.Api.csproj -c Release -o ./publish
-    startCommand: dotnet src/CQRS.Api/publish/CQRS.Api.dll
-    env: dotnet
-    autoDeploy: true
-    branch: master
+    env: docker
+    dockerfilePath: src/CQRS.Api/Dockerfile
 
   - type: web
     name: api2
-    runtime: dotnet
-    buildCommand: dotnet publish src/Sample.Api/Sample.Api.csproj -c Release -o ./publish
-    startCommand: dotnet src/Sample.Api/publish/Sample.Api.dll
-    env: dotnet
-    autoDeploy: true
-    branch: master
+    env: docker
+    dockerfilePath: src/Sample.Api/Dockerfile
