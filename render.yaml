@@ -4,23 +4,21 @@ services:
     plan: free
     branch: master
     env: docker
-    dockerContext: ./src/CQRS.Api
-    dockerfilePath: ./Dockerfile
+    dockerfilePath: ./src/CQRS.Api/Dockerfile
+    dockerContext: .
     envVars:
       - key: ASPNETCORE_ENVIRONMENT
         value: Production
-      - key: ASPNETCORE_URLS
-        value: http://*:8080
+    healthCheckPath: /health
 
   - type: web
     name: sample-api
     plan: free
     branch: master
     env: docker
-    dockerContext: ./src/Sample.Api
-    dockerfilePath: ./Dockerfile
+    dockerfilePath: ./src/Sample.Api/Dockerfile
+    dockerContext: .
     envVars:
       - key: ASPNETCORE_ENVIRONMENT
         value: Production
-      - key: ASPNETCORE_URLS
-        value: http://*:8081
+    healthCheckPath: /health
