@@ -1,7 +1,6 @@
 services:
   - type: web
-    name: myapi  
-    env: docker
+    name: myapi
     plan: free                    
     autoDeploy: true              
     branch: master                  
