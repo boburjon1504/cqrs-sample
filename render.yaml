@@ -1,16 +1,28 @@
 services:
   - type: web
-    name: api1
+    name: cqrs-api
     plan: free
     branch: master
     env: docker
-    dockerContext: src/CQRS.Api  # Add this line
-    dockerfilePath: Dockerfile 
+    dockerContext: src/CQRS.Api
+    dockerfilePath: Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://*:8080
 
   - type: web
-    name: api2
+    name: sample-api
     plan: free
     branch: master
     env: docker
-    dockerContext: src/Sample.Api  
-    dockerfilePath: Dockerfile 
+    dockerContext: src/Sample.Api
+    dockerfilePath: Dockerfile
+    healthCheckPath: /health
+    envVars:
+      - key: ASPNETCORE_ENVIRONMENT
+        value: Production
+      - key: ASPNETCORE_URLS
+        value: http://*:8081
