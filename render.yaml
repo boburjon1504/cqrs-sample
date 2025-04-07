@@ -4,5 +4,6 @@ services:
     env: docker
     plan: free                    
     autoDeploy: true              
-    branch: master                  
+    branch: master  
+    repoPath: src/CQRS.Api
     
