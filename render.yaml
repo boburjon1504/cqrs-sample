@@ -5,7 +5,8 @@ services:
     plan: free                    
     autoDeploy: true              
     branch: master  
-    repoPath: src/CQRS.Api
+    dockerfile: src/CQRS.Api/Dockerfile
+    dockerContext: src/CQRS.Api
 
   - type: web
     name: myapi
@@ -13,5 +14,6 @@ services:
     plan: free                    
     autoDeploy: true              
     branch: master  
-    repoPath: src/Sample.Api
+    dockerfile: src/Sample.Api/Dockerfile
+    dockerContext: src/Sample.Api
     
