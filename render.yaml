@@ -1,9 +1,16 @@
 services:
   - type: web
-    name: myapi
+    name: api1
+    plan: free
+    branch: master
     env: docker
-    plan: free                    
-    autoDeploy: true              
-    branch: master  
-    repoPath: src/CQRS.Api
-    
+    dockerContext: src/CQRS.Api  # Add this line
+    dockerfilePath: Dockerfile 
+
+  - type: web
+    name: api2
+    plan: free
+    branch: master
+    env: docker
+    dockerContext: src/Sample.Api  
+    dockerfilePath: Dockerfile 
