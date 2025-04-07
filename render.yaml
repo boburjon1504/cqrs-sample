@@ -4,11 +4,13 @@ services:
     plan: free
     branch: master
     env: docker
-    dockerfilePath: src/CQRS.Api/Dockerfile
+    dockerContext: src/CQRS.Api  # Add this line
+    dockerfilePath: Dockerfile 
 
   - type: web
     name: api2
     plan: free
     branch: master
     env: docker
-    dockerfilePath: src/Sample.Api/Dockerfile
+    dockerContext: src/Sample.Api  
+    dockerfilePath: Dockerfile 
