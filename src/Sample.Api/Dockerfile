@@ -27,7 +27,7 @@ ARG TARGETARCH
 # If TARGETARCH is "amd64", replace it with "x64" - "x64" is .NET's canonical name for this and "amd64" doesn't
 #   work in .NET 6.0.
 RUN --mount=type=cache,id=nuget,target=/root/.nuget/packages \
-    dotnet publish "/sourse/Sample.Api/Sample.Api.csproj" \
+    dotnet publish "Sample.Api/Sample.Api.csproj" \
     -a ${TARGETARCH/amd64/x64} \
     --use-current-runtime \
     --self-contained false \
