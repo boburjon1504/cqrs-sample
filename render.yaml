@@ -4,9 +4,8 @@ services:
     plan: free
     branch: master
     env: docker
-    dockerContext: src/CQRS.Api
-    dockerfilePath: Dockerfile
-    healthCheckPath: /health
+    dockerContext: ./src/CQRS.Api
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: ASPNETCORE_ENVIRONMENT
         value: Production
@@ -18,9 +17,8 @@ services:
     plan: free
     branch: master
     env: docker
-    dockerContext: src/Sample.Api
-    dockerfilePath: Dockerfile
-    healthCheckPath: /health
+    dockerContext: ./src/Sample.Api
+    dockerfilePath: ./Dockerfile
     envVars:
       - key: ASPNETCORE_ENVIRONMENT
         value: Production
