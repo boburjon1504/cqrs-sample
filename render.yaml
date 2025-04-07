@@ -1,10 +1,12 @@
 services:
   - type: web
     name: api1
+    plan: free
     env: docker
     dockerfilePath: src/CQRS.Api/Dockerfile
 
   - type: web
     name: api2
+    plan: free
     env: docker
     dockerfilePath: src/Sample.Api/Dockerfile
