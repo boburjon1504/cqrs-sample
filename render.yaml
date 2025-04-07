@@ -1,19 +1,18 @@
 services:
   - type: web
-    name: myapi
-    env: docker
-    plan: free                    
-    autoDeploy: true              
-    branch: master  
-    dockerfile: src/CQRS.Api/Dockerfile
-    dockerContext: src/CQRS.Api
+    name: api1
+    runtime: dotnet
+    buildCommand: dotnet publish src/CQRS.Api/CQRS.Api.csproj -c Release -o ./publish
+    startCommand: dotnet src/CQRS.Api/publish/CQRS.Api.dll
+    env: dotnet
+    autoDeploy: true
+    branch: master
 
   - type: web
-    name: sampleapi
-    env: docker
-    plan: free                    
-    autoDeploy: true              
-    branch: master  
-    dockerfile: src/Sample.Api/Dockerfile
-    dockerContext: src/Sample.Api
-    
+    name: api2
+    runtime: dotnet
+    buildCommand: dotnet publish src/Sample.Api/Sample.Api.csproj -c Release -o ./publish
+    startCommand: dotnet src/Sample.Api/publish/Sample.Api.dll
+    env: dotnet
+    autoDeploy: true
+    branch: master
