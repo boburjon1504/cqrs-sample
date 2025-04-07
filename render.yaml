@@ -9,7 +9,7 @@ services:
     dockerContext: src/CQRS.Api
 
   - type: web
-    name: myapi
+    name: sampleapi
     env: docker
     plan: free                    
     autoDeploy: true              
