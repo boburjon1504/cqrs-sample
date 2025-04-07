@@ -1,7 +1,7 @@
 services:
   - type: web
     name: myapi  
-    env: dotnet
+    env: docker
     plan: free                    
     autoDeploy: true              
     branch: master                  
