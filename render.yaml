@@ -5,4 +5,4 @@ services:
     plan: free                    
     autoDeploy: true              
     branch: master                  
-    buildCommand: "dotnet build src/CQRS.Api/CQRS.Api.csproj"  
+    
