@@ -1,8 +1,8 @@
 services:
   - type: web
     name: myapi
+    env: docker
     plan: free                    
     autoDeploy: true              
     branch: master                  
     buildCommand: "dotnet build src/CQRS.Api/CQRS.Api.csproj"  
-    startCommand: "dotnet src/CQRS.Api/bin/Debug/net9.0/CQRS.Api.dll"  
