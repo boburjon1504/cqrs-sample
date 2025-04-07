@@ -6,4 +6,12 @@ services:
     autoDeploy: true              
     branch: master  
     repoPath: src/CQRS.Api
+
+  - type: web
+    name: myapi
+    env: docker
+    plan: free                    
+    autoDeploy: true              
+    branch: master  
+    repoPath: src/Sample.Api
     
