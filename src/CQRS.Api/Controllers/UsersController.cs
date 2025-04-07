@@ -37,5 +37,8 @@ namespace CQRS.Api.Controllers
 
         [HttpGet("new")]
         public IActionResult New() => Ok("Ok from new hi");
+
+        [HttpGet("another-new")]
+        public IActionResult Another() => Ok("Ok from new hi");
     }
 }
