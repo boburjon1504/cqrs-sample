@@ -20,7 +20,6 @@ namespace YourNamespace.StepDefinitions
         [Given(@"the user is on the login page")]
         public void GivenTheUserIsOnTheLoginPage()
         {
-            // Simulate loading the login page
             _username = string.Empty;
             _password = string.Empty;
             _isLoggedIn = false;
