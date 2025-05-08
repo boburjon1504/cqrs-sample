@@ -1,16 +1,22 @@
 ﻿using TechTalk.SpecFlow;
 using NUnit.Framework;
 using System.Net.Http.Json;
+using Microsoft.AspNetCore.Mvc.Testing;
 
 namespace YourNamespace.StepDefinitions
 {
     [Binding]
-    public class LoginSteps
+    public class LoginSteps : IClassFixture<WebApplicationFactory<Program>>
     {
         private string _username;
         private string _password;
         private bool _isLoggedIn;
+        private HttpClient _httpClient;
 
+        public LoginSteps(WebApplicationFactory<Program> factory)
+        {
+            _httpClient = factory.CreateClient();
+        }   
         [Given(@"the user is on the login page")]
         public void GivenTheUserIsOnTheLoginPage()
         {
@@ -23,26 +29,14 @@ namespace YourNamespace.StepDefinitions
         [When(@"the user enters username ""(.*)"" and password ""(.*)""")]
         public async Task WhenTheUserEntersUsernameAndPasswordAsync(string firstName, string lastName)
         {
-            _username = firstName;
-            _password = lastName;
             var httpClient = new HttpClient();
             var tokenEndpoint = "https://localhost:7226/api/users";
 
-            //var request = new HttpRequestMessage(HttpMethod.Post, tokenEndpoint)
-            //{
-            //    Content = new FormUrlEncodedContent(new Dictionary<string, string>
-            //    {
-            //        ["grant_type"] = "password",
-            //        ["client_id"] = "report-hub",
-            //        ["client_secret"] = "client_secret_key",
-            //        ["scope"] = "report-hub-api-scope roles offline_access",
-            //        ["username"] = _username,
-            //        ["password"] = _password
-            //    })
-            //};
+            var response = await _httpClient.PostAsJsonAsync("api/users",new { firstName, lastName } );
 
-            var response = await httpClient.PostAsJsonAsync(tokenEndpoint,new { _username, _password } );
+            var get = await _httpClient.GetAsync("api/users");
 
+            var body = await get.Content.ReadAsStringAsync();
             _isLoggedIn = response.IsSuccessStatusCode;
         }
 

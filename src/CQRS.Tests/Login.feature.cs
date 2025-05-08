@@ -75,13 +75,13 @@ namespace CQRS.Tests
         
         [NUnit.Framework.TestAttribute()]
         [NUnit.Framework.DescriptionAttribute("Login with different credentials")]
-        [NUnit.Framework.TestCaseAttribute("admin@example.com", "Admin123$", null)]
-        public void LoginWithDifferentCredentials(string username, string password, string[] exampleTags)
+        [NUnit.Framework.TestCaseAttribute("testing", "testing", null)]
+        public void LoginWithDifferentCredentials(string firstName, string lastName, string[] exampleTags)
         {
             string[] tagsOfScenario = exampleTags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            argumentsOfScenario.Add("username", username);
-            argumentsOfScenario.Add("password", password);
+            argumentsOfScenario.Add("firstName", firstName);
+            argumentsOfScenario.Add("lastName", lastName);
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Login with different credentials", null, tagsOfScenario, argumentsOfScenario, featureTags);
 #line 3
   this.ScenarioInitialize(scenarioInfo);
@@ -97,7 +97,7 @@ namespace CQRS.Tests
     testRunner.Given("the user is on the login page", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 5
-    testRunner.When(string.Format("the user enters username \"{0}\" and password \"{1}\"", username, password), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+    testRunner.When("the user enters username \"<username>\" and password \"<password>\"", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 6
     testRunner.Then("the user should be logged in successfully", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
